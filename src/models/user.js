@@ -42,6 +42,8 @@ const userSchema = new mongoose.Schema(
     gender: {
       type: String,
       enum: {
+        lowercase: true, // Male -> male, FEMALE -> female
+        trim: true,      // Extra spaces remove karega
         values: ["male", "female", "other"],
         message: `{VALUE} is not a valid gender type`,
       },
@@ -83,9 +85,11 @@ const userSchema = new mongoose.Schema(
 userSchema.methods.getJWT = async function () {
   const user = this;
 
-  const token = await jwt.sign({ _id: user._id }, "DEV@Tinder$790", {
-    expiresIn: "7d",
-  });
+  const token = jwt.sign(
+  { _id: user._id },
+  process.env.JWT_SECRET,
+  { expiresIn: "7d" }
+);
 
   return token;
 };

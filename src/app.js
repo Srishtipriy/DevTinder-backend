@@ -15,7 +15,13 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.json());
+app.use(
+  express.json({
+    verify: (req, res, buf) => {
+      req.rawBody = Buffer.from(buf);
+    },
+  })
+);
 app.use(cookieParser());
 
 const authRouter = require("./routes/auth");
