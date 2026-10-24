@@ -1,7 +1,7 @@
 {
   "name": "devtinder",
   "version": "1.0.0",
-  "description": "tinder for devs",
+  "description": "tinder for developers",
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
@@ -11,7 +11,7 @@
     "nodejs",
     "javascript"
   ],
-  "author": "Akshay Saini",
+  "author": "Srishti Priya",
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-ses": "^3.716.0",
@@ -24,6 +24,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.1",
     "node-cron": "^3.0.3",
+    "nodemailer": "^10.2.1",
     "razorpay": "^2.9.5",
     "socket.io": "^4.8.1",
     "validator": "^13.12.0"

@@ -20,6 +20,10 @@ const connectionRequestSchema = new mongoose.Schema(
         message: `{VALUE} is incorrect status type`,
       },
     },
+    emailSent: {
+          type: Boolean,
+          default: false,
+  },
   },
   { timestamps: true }
 );
